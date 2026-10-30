@@ -102,6 +102,12 @@ public class A5ActiveMITM {
                 // (Needless to say, you are not allowed to use the key
                 // that is being used by david and server.)
 
+                final byte[] oldAddress = "prf.denis@fri.si".getBytes(StandardCharsets.UTF_8);
+                final byte[] newAddress = "isp@gmail.com   ".getBytes(StandardCharsets.UTF_8);
+                for (int i = 0; i < oldAddress.length; i++) {
+                    bytes[i] = (byte) (bytes[i] ^ oldAddress[i] ^ newAddress[i]);
+                }
+
                 print("OUT: %s", hex(bytes));
                 send("server", bytes);
                 send("server", iv);

@@ -50,6 +50,7 @@ public class SymmetricCipherExample {
         System.out.println("[PT] " + Agent.hex(dt));
 
         // Todo: What happens if the key is incorrect? (Try with RC4 or AES in CTR mode)
+        // RC4 and AES in CTR mode. When we decrypt the ciphertext with the wrong key, we get some weird Plain Text = [MESSAGE] f���Dw5１��$<]��w��U
 
         // STEP 5: Create a string from a byte array
         System.out.println("[MESSAGE] " + new String(dt, StandardCharsets.UTF_8));
